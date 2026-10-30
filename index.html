@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="images/logo.jpg">
+<title>Biro Empire | Cyber, Bookshop &amp; Tech Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14171c;--ink2:#1e232b;--slate:#3a414c;--paper:#f3f1ec;--card:#fff;--brass:#e8b04a;--brass2:#b8821f;--mute:#6b7280;--wa:#1fbf5b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Zilla Slab",Georgia,serif;line-height:1.15}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+.btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;padding:14px 26px;border-radius:999px;font-weight:600;border:2px solid transparent;cursor:pointer;font:600 16px Figtree,sans-serif;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.gold{background:var(--brass);color:var(--ink)}
+.ghost{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.06)}
+.dark{background:var(--ink);color:#fff}
+/* splash */
+#splash{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 30%,#2a313b,var(--ink) 70%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .7s,visibility .7s}
+@keyframes splashOut{to{opacity:0;visibility:hidden}}
+#splash{animation:splashOut .7s 7s forwards}
+#splash.out{opacity:0;visibility:hidden}
+#splash .logo{width:130px;border-radius:24px;background:#f3f1ec;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);margin-bottom:28px}
+#splash small{color:var(--brass);letter-spacing:.3em;font-weight:600}
+#splash h1{font-size:clamp(40px,10vw,76px);margin:10px 0}
+#tag{font:500 clamp(22px,5vw,34px) "Zilla Slab",serif;color:var(--brass);min-height:1.3em;transition:opacity .4s}
+#splash p{max-width:420px;color:#c5cad3;margin:16px 0 28px}
+.bar{width:min(320px,70vw);height:3px;background:#ffffff26;margin-bottom:26px;border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--brass);animation:fill 6s linear forwards}
+@keyframes fill{to{width:100%}}
+.dots{display:flex;gap:8px;margin-top:22px}.dots b{width:8px;height:8px;border-radius:50%;background:#ffffff40}.dots b.on{background:var(--brass);width:22px;border-radius:8px}
+/* ticker + header */
+.ticker{background:var(--brass);color:var(--ink);font-weight:600;font-size:14px;overflow:hidden;white-space:nowrap;padding:8px 0}
+.ticker div{display:inline-block;padding-left:100%;animation:tk 38s linear infinite}
+@keyframes tk{to{transform:translateX(-100%)}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(243,241,236,.92);backdrop-filter:blur(12px);border-bottom:1px solid #0001}
+.hd{display:flex;align-items:center;gap:12px;height:68px}
+.hd img{width:46px;height:46px;object-fit:contain;border-radius:12px;background:#fff;border:1px solid #0001}
+.hd strong{font:700 19px "Zilla Slab",serif;display:block;line-height:1.1}
+.hd span{font-size:11px;color:var(--brass2);font-weight:600;letter-spacing:.06em}
+.hd .sp{flex:1}
+nav{display:none;gap:26px;font-weight:500}
+#menu{width:44px;height:44px;border-radius:12px;border:1px solid #0002;background:#fff;font-size:20px;cursor:pointer}
+#drawer{display:none;flex-direction:column;background:#fff;padding:10px 20px 20px;border-bottom:1px solid #0001}
+#drawer.open{display:flex}#drawer a{padding:14px 0;border-bottom:1px solid #0001;font-weight:500}
+@media(min-width:820px){nav{display:flex}#menu,#drawer{display:none!important}}
+/* hero */
+.hero{position:relative;color:#fff;min-height:88vh;display:flex;align-items:center;background:linear-gradient(180deg,#14171ccc,#14171cf2),url(images/shop-front.jpg) center/cover}
+.hero .wrap{padding-top:60px;padding-bottom:110px;text-align:center}
+.pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.pill{background:#ffffff14;border:1px solid #ffffff30;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:500}
+.pill:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--wa);margin-right:8px}
+.hero h1{font-size:clamp(40px,8vw,78px)}
+#rot{color:var(--brass);display:inline-block;transition:opacity .4s}
+.hero p{max-width:600px;margin:22px auto 32px;color:#d4d8df;font-size:18px}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* stats */
+.stats{margin:-70px auto 0;position:relative;z-index:5;background:var(--card);border-radius:28px;box-shadow:0 30px 70px #14171c33;display:grid;grid-template-columns:repeat(2,1fr);max-width:900px}
+.stats div{padding:28px 24px;border:1px solid #0000000d}
+.stats b{font:700 38px "Zilla Slab",serif;display:block}
+.stats span{color:var(--mute);font-size:14px}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+section{padding:88px 0}
+.k{color:var(--brass2);font-weight:600;margin-bottom:10px}
+h2{font-size:clamp(32px,5vw,50px);margin-bottom:16px}
+.lead{max-width:620px;color:var(--mute);font-size:18px}
+/* reel */
+.reelsec{background:var(--ink);color:#fff}
+.reelsec .lead{color:#b4bac4}
+.reel{position:relative;margin-top:36px;border-radius:30px;overflow:hidden;aspect-ratio:4/5;max-width:440px;background:#000;box-shadow:0 30px 80px #0008}
+@media(min-width:760px){.reel{aspect-ratio:4/3;max-width:none}}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.reel img.on{opacity:1;animation:kb 7s ease-out forwards}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.reel:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000c,transparent 55%)}
+.rt{position:absolute;left:0;right:0;top:14px;display:flex;gap:6px;padding:0 16px;z-index:3}
+.rt i{flex:1;height:3px;background:#fff4;border-radius:3px;overflow:hidden}.rt i b{display:block;height:100%;width:0;background:#fff}
+.rt i.done b{width:100%}.rt i.cur b{animation:fill 5s linear forwards}
+.rc{position:absolute;left:24px;right:24px;bottom:26px;z-index:3}
+.rc em{font:italic 500 clamp(24px,4vw,36px) "Zilla Slab",serif}
+.rc small{display:block;color:var(--brass);font-weight:600;margin-bottom:6px}
+/* about / why */
+.cols{display:grid;gap:26px;grid-template-columns:1fr}
+@media(min-width:820px){.cols{grid-template-columns:1fr 1fr;align-items:center;gap:56px}}
+.photo{border-radius:28px;aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:0 24px 60px #14171c30}
+.why{display:grid;gap:18px;margin-top:40px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.why div{background:var(--card);border-radius:22px;padding:28px;border-top:4px solid var(--brass)}
+.why h3{font-size:22px;margin-bottom:8px}.why p{color:var(--mute);font-size:15px}
+/* services */
+.tabs{display:flex;gap:10px;overflow-x:auto;margin:30px 0;padding-bottom:6px}
+.tab{white-space:nowrap;padding:11px 20px;border-radius:999px;border:1px solid #0003;background:transparent;font:600 15px Figtree;cursor:pointer}
+.tab[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.s{background:var(--card);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:6px;transition:box-shadow .25s}
+.s:hover{box-shadow:0 18px 40px #14171c22}
+.s i{font-style:normal;font-size:28px}
+.s h3{font-size:20px}.s p{font-size:14px;color:var(--mute);flex:1}
+.s a{color:var(--brass2);font-weight:600;font-size:14px;margin-top:8px}
+.s.new{background:var(--ink);color:#fff}.s.new p{color:#b4bac4}.s.new a{color:var(--brass)}
+/* order */
+.orderbox{background:var(--card);border-radius:30px;padding:clamp(24px,5vw,48px);box-shadow:0 30px 70px #14171c1f}
+form{display:grid;gap:14px;margin-top:22px}
+input,select,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid #0003;font:16px Figtree;background:#faf9f6}
+.cl{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+footer{background:var(--ink);color:#aeb4be;padding:48px 0 110px;text-align:center}
+footer img{width:80px;margin:0 auto 14px;border-radius:16px;background:#f3f1ec;padding:6px}
+footer b{color:#fff;font:700 22px "Zilla Slab",serif}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px;z-index:60}
+.fab a{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:24px;box-shadow:0 10px 26px #0005}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.ticker div{padding-left:0}}
+</style></head><body>
+
+<div id="splash" onclick="if(event.target.id==='enter')this.classList.add('out')">
+<img class="logo" src="images/logo.jpg" alt="Biro Empire logo">
+<small>WELCOME TO</small>
+<h1>Biro Empire</h1>
+<div id="tag">Your Digital Partner</div>
+<p>Cyber services, a well-stocked bookshop and expert tech repair, all under one roof.</p>
+<div class="bar"><i></i></div>
+<button class="btn gold" id="enter">Enter site</button>
+<div class="dots" id="sd"><b class="on"></b><b></b><b></b><b></b></div>
+</div>
+
+<div class="ticker"><div>Now offering: website design · Windows installation · driver installation · phone repair · Wi-Fi setup · printing &amp; lamination · eCitizen, KRA and SHA services · Chat on WhatsApp 0759 857440</div></div>
+
+<header><div class="wrap hd">
+<img src="images/logo.jpg" alt="BE"><div><strong>Biro Empire</strong><span>CYBER · BOOKSHOP · TECH</span></div><div class="sp"></div>
+<nav><a href="#services">Services</a><a href="#reel">Reel</a><a href="#about">About</a><a href="#bookshop">Bookshop</a><a href="#order">Order</a></nav>
+<button id="menu" aria-label="Open menu">☰</button></div>
+<div id="drawer"><a href="#services">Services</a><a href="#reel">Reel</a><a href="#about">About</a><a href="#bookshop">Bookshop</a><a href="#order">Order</a></div></header>
+
+<div class="hero"><div class="wrap">
+<div class="pills"><span class="pill">Open for walk-ins</span><span class="pill">Orders on WhatsApp</span></div>
+<h1>We keep your world <span id="rot">printed.</span></h1>
+<p>From government e-services and printing to websites, computer repair and phone fixes, Biro Empire is the one stop for everything digital and stationery.</p>
+<div class="cta"><a class="btn gold" href="https://wa.me/254759857440?text=Hello%20Biro%20Empire" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" href="#services">Explore services</a></div>
+</div></div>
+
+<div class="wrap"><div class="stats">
+<div><b>24</b><span>Services under one roof</span></div>
+<div><b>9</b><span>Repair and setup solutions</span></div>
+<div><b>3-in-1</b><span>Cyber, bookshop and tech</span></div>
+<div><b>Same day</b><span>On most print and design jobs</span></div></div></div>
+
+<section id="reel" class="reelsec"><div class="wrap">
+<p class="k" style="color:var(--brass)">Biro Empire Reel</p>
+<h2>See the shop at work</h2>
+<p class="lead">A look inside our cyber café and bookshop, where every job gets careful, friendly attention.</p>
+<div class="reel" id="reelbox">
+<div class="rt"></div>
+<img src="images/shop-front.jpg" alt="Biro Empire shop front" class="on"><img src="images/work-2.jpg" alt="Attendant at the service desk"><img src="images/work-1.jpg" alt="Preparing documents"><img src="images/work-3.jpg" alt="Working on a spreadsheet">
+<div class="rc"><small id="rs">Our shop</small><em id="rq">Walk in, walk out sorted.</em></div></div>
+</div></section>
+
+<section id="about"><div class="wrap cols">
+<div><p class="k">Welcome</p><h2>A message from Biro Empire</h2>
+<p class="lead">We started with a simple idea: people should not have to travel far or wait long for everyday digital help. Today, Biro Empire is the place to print a CV, apply for a service on eCitizen, buy school supplies, fix a laptop or get a new website.</p>
+<div class="cl"><a class="btn dark" href="#order">Place an order</a></div></div>
+<img class="photo" src="images/desk.jpg" alt="Biro Empire team member at work"></div>
+<div class="wrap why">
+<div><h3>Fast turnaround</h3><p>Photocopy, printing, lamination and passport photos done while you wait.</p></div>
+<div><h3>Trusted tech help</h3><p>Windows, drivers, Wi-Fi and hardware handled by people who explain what they fix.</p></div>
+<div><h3>Honest pricing</h3><p>Clear prices before we start. Message us on WhatsApp for a quick quote.</p></div></div></section>
+
+<section id="services" style="background:#e9e6df"><div class="wrap">
+<p class="k">What we do</p><h2>Everything you need, in one place</h2>
+<p class="lead">Pick a category, then tap a service to ask about it on WhatsApp.</p>
+<div class="tabs" role="tablist" id="tabs"></div><div class="grid" id="grid"></div></div></section>
+
+<section id="bookshop"><div class="wrap cols">
+<img class="photo" style="aspect-ratio:4/3" src="images/shop-front.jpg" alt="Biro Empire bookshop shelves">
+<div><p class="k">Bookshop</p><h2>Stationery, books and phone accessories</h2>
+<p class="lead">Exercise books, pens, scissors, staplers, tape, chargers, cables, earphones, screen protectors and more, stocked for students, offices and families.</p>
+<div class="cl"><a class="btn dark" href="https://wa.me/254759857440?text=Hello%2C%20do%20you%20have%20this%20item%20in%20stock%3F" target="_blank" rel="noopener">Ask if an item is in stock</a></div></div></div></section>
+
+<section id="order" style="background:#e9e6df"><div class="wrap"><div class="orderbox">
+<p class="k">Order or enquire</p><h2>Tell us what you need</h2>
+<p class="lead">Fill this in and it opens WhatsApp with your message ready to send.</p>
+<form id="f"><input id="n" placeholder="Your name" required>
+<select id="sv"></select><textarea id="m" rows="3" placeholder="Details, for example quantity, size or the problem you are facing"></textarea>
+<button class="btn gold" type="submit">Send on WhatsApp</button></form>
+<div class="cl"><a class="btn dark" href="tel:+254759857440">Call 0759 857440</a></div></div></div></section>
+
+<footer><div class="wrap"><img src="images/logo.jpg" alt="BE"><b>Biro Empire</b><p>Cyber · Bookshop · Tech Services</p><p>WhatsApp and calls: 0759 857440</p><p style="margin-top:14px;font-size:13px">© 2026 Biro Empire. All rights reserved.</p></div></footer>
+
+<div class="fab"><a href="#" aria-label="Back to top" style="background:var(--slate);font-size:20px">↑</a><a href="tel:+254759857440" aria-label="Call" style="background:var(--ink)">☎</a><a href="https://wa.me/254759857440" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:var(--wa)">✆</a></div>
+
+<script>
+const $=s=>document.querySelector(s),WA="https://wa.me/254759857440?text=";
+// splash
+const tags=["Your Digital Partner","Print. Design. Repair.","Books and Accessories","Fast, Friendly, Reliable"];let ti=0;
+function nextTag(){ti=(ti+1)%tags.length;$("#tag").style.opacity=0;setTimeout(()=>{$("#tag").textContent=tags[ti];$("#tag").style.opacity=1;[...$("#sd").children].forEach((d,i)=>d.className=i==ti?"on":"")},350)}
+const tt=setInterval(nextTag,1500);
+function enter(){clearInterval(tt);$("#splash").classList.add("out")}
+$("#enter").onclick=enter;setTimeout(enter,6200);
+// hero rotator
+const words=["printed.","designed.","repaired.","connected."];let wi=0;
+setInterval(()=>{wi=(wi+1)%words.length;$("#rot").style.opacity=0;setTimeout(()=>{$("#rot").textContent=words[wi];$("#rot").style.opacity=1},400)},2600);
+// menu
+$("#menu").onclick=()=>$("#drawer").classList.toggle("open");
+document.querySelectorAll("#drawer a").forEach(a=>a.onclick=()=>$("#drawer").classList.remove("open"));
+// reel
+const slides=[["Our shop","Walk in, walk out sorted."],["At the desk","Friendly help with every request."],["Behind the scenes","Documents prepared with care."],["Every detail","Accurate work, every time."]];
+const imgs=[...document.querySelectorAll("#reelbox>img")],rt=$(".rt");let ri=0,rtm;
+slides.forEach(()=>rt.insertAdjacentHTML("beforeend","<i><b></b></i>"));
+function show(i){ri=i;imgs.forEach((m,j)=>{m.classList.remove("on");if(j==i){void m.offsetWidth;m.classList.add("on")}});
+[...rt.children].forEach((b,j)=>{b.className=j<i?"done":"";if(j==i){void b.offsetWidth;b.className="cur"}});
+$("#rs").textContent=slides[i][0];$("#rq").textContent=slides[i][1];clearTimeout(rtm);rtm=setTimeout(()=>show((i+1)%slides.length),5000)}
+show(0);
+// services
+const cats={"Cyber and government":[["🏛️","eCitizen and eServices","Applications and account help for eCitizen and other online services."],["🧾","KRA, SHA and NTSA","Tax, health insurance and driving service support."],["💼","GHRIS payslips","Download and print your payslips quickly."],["🌐","Internet services","Fast browsing, online forms and email support."],["🛍️","Jumia services","Order, pick up and get help with Jumia purchases."],["🎬","Movies and series","Ask us for the latest titles."]],
+"Print and design":[["🖨️","Printing and photocopy","Black and white or colour, small or bulk."],["📄","Scanning","Clear scans of documents and certificates."],["🔖","Lamination and binding","Protect and present your documents neatly."],["🪪","Passport size photos","Quick photos that meet official requirements."],["⌨️","Typesetting","CVs, letters, proposals and school work."],["🎨","Business cards and designing","Cards, posters, flyers and branding."],["🖼️","Portrait photos","Printed portraits and gifts."]],
+"Tech and repair":[["💻","Website design","All types: business, school, shop and portfolio sites.",1],["🛠️","Hardware maintenance","Cleaning, upgrades and fixes for desktops and laptops.",1],["🪟","Windows installation","Fresh installs, activation and clean setup.",1],["🔌","Drivers installation","Get printers, graphics and Wi-Fi working properly.",1],["📶","Wi-Fi connection","Router setup, network fixes and better coverage.",1],["📺","Electronics service repair","Diagnosis and repair of common electronics.",1],["📱","Phone repair","Screens, charging ports, software and more.",1]],
+"Bookshop":[["📚","Books and exercise books","School and office reading and writing needs."],["✏️","Stationery","Pens, pencils, geometry sets, staplers and tape."],["🔋","Phone accessories","Chargers, cables, earphones and screen protectors."],["💾","Flash disks and storage","Reliable storage for your files."]]};
+const tabs=$("#tabs"),grid=$("#grid");
+Object.keys(cats).forEach((c,i)=>{const b=document.createElement("button");b.className="tab";b.role="tab";b.textContent=c;b.onclick=()=>draw(c);tabs.append(b)});
+function draw(c){[...tabs.children].forEach(b=>b.setAttribute("aria-selected",b.textContent==c));
+grid.innerHTML=cats[c].map(s=>`<div class="s${s[3]?" new":""}"><i>${s[0]}</i><h3>${s[1]}</h3><p>${s[2]}</p><a target="_blank" rel="noopener" href="${WA+encodeURIComponent("Hello Biro Empire, I would like to ask about: "+s[1])}">Ask on WhatsApp</a></div>`).join("")}
+draw("Cyber and government");
+$("#sv").innerHTML="<option value=''>Choose a service</option>"+Object.values(cats).flat().map(s=>`<option>${s[1]}</option>`).join("");
+$("#f").onsubmit=e=>{e.preventDefault();const t=`Hello Biro Empire, my name is ${$("#n").value}. I need: ${$("#sv").value||"a service"}. ${$("#m").value}`;window.open(WA+encodeURIComponent(t),"_blank")};
+</script></body></html>
